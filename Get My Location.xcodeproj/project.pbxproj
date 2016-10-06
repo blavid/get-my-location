@@ -18,6 +18,7 @@
 		7F5CA5D01DA471C5002538C7 /* webtrends.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7F5CA5CF1DA471C5002538C7 /* webtrends.plist */; };
 		7F80D48F1DA56C76008A4C2C /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F80D48E1DA56C76008A4C2C /* LoginViewController.swift */; };
 		7F80D4911DA59E0F008A4C2C /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F80D4901DA59E0F008A4C2C /* CoreMotion.framework */; };
+		7F80D4931DA6CDF8008A4C2C /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F80D4921DA6CDF8008A4C2C /* Constants.swift */; };
 		8BF6D93BB71C729C6A6DF6A2 /* libPods-Get My Location.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E181B7886AE556CA7F718CC /* libPods-Get My Location.a */; };
 /* End PBXBuildFile section */
 
@@ -37,6 +38,7 @@
 		7F5CA5CF1DA471C5002538C7 /* webtrends.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = webtrends.plist; sourceTree = "<group>"; };
 		7F80D48E1DA56C76008A4C2C /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		7F80D4901DA59E0F008A4C2C /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
+		7F80D4921DA6CDF8008A4C2C /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		8E181B7886AE556CA7F718CC /* libPods-Get My Location.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Get My Location.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D3F2124FD6FCE64A1FA04B94 /* Pods-Get My Location.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Get My Location.release.xcconfig"; path = "Pods/Target Support Files/Pods-Get My Location/Pods-Get My Location.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -87,6 +89,7 @@
 				7F5CA5B71DA4501E002538C7 /* Info.plist */,
 				7F5CA5CF1DA471C5002538C7 /* webtrends.plist */,
 				7F80D48E1DA56C76008A4C2C /* LoginViewController.swift */,
+				7F80D4921DA6CDF8008A4C2C /* Constants.swift */,
 			);
 			path = "Get My Location";
 			sourceTree = "<group>";
@@ -240,6 +243,7 @@
 				7F80D48F1DA56C76008A4C2C /* LoginViewController.swift in Sources */,
 				7F5CA5C11DA46380002538C7 /* LocationViewController.swift in Sources */,
 				7F5CA5AC1DA4501E002538C7 /* AppDelegate.swift in Sources */,
+				7F80D4931DA6CDF8008A4C2C /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

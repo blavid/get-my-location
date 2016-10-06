@@ -15,8 +15,11 @@ class LocationViewController: UIViewController, CLLocationManagerDelegate {
     var username: String = ""
     var timeOfLastSample = Date().timeIntervalSince1970
     var sampleInterval: TimeInterval = 5 // seconds
-    let buttonColor = UIColor(red: (226/255), green: (89/255), blue: (40/255), alpha: 1.0)
     let format = ".2"
+    let locationManager = CLLocationManager()
+    var motionManager = CMMotionManager()
+    let geoCoder = CLGeocoder()
+    var locationUpdatesOn = false
     
     @IBOutlet weak var latitudeLabel: UILabel!
     @IBOutlet weak var longitudeLabel: UILabel!
@@ -29,11 +32,6 @@ class LocationViewController: UIViewController, CLLocationManagerDelegate {
     @IBOutlet weak var rotationY: UILabel!
     @IBOutlet weak var rotationZ: UILabel!
     
-    let locationManager = CLLocationManager()
-    var motionManager = CMMotionManager()
-    let geoCoder = CLGeocoder()
-    var locationUpdatesOn = false
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -41,8 +39,7 @@ class LocationViewController: UIViewController, CLLocationManagerDelegate {
         addressLabel.sizeToFit()
         startLocatingButton.layer.cornerRadius = 5
         startLocatingButton.layer.borderWidth = 2
-        startLocatingButton.layer.borderColor = buttonColor.cgColor
-        
+        startLocatingButton.layer.borderColor = webtrendsOrange.cgColor
     }
     
     override func didReceiveMemoryWarning() {
@@ -100,7 +97,6 @@ class LocationViewController: UIViewController, CLLocationManagerDelegate {
             } else {
                 if (placemarks?.count)! > 0 {
                     let placemark = placemarks?.last
-                    
                     self.addressLabel.text = "\(placemark!.subThoroughfare!) \(placemark!.thoroughfare!)\n\(placemark!.locality!), \(placemark!.administrativeArea!) \(placemark!.postalCode!) "
                 }
             }
@@ -113,7 +109,7 @@ class LocationViewController: UIViewController, CLLocationManagerDelegate {
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-        print("error")
+        print("error: Unable to determine location")
     }
     
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
@@ -135,11 +131,7 @@ class LocationViewController: UIViewController, CLLocationManagerDelegate {
     }
     
     func timeHasElapsed() -> Bool {
-        if Date().timeIntervalSince1970 >= (timeOfLastSample + sampleInterval) {
-            return true
-        } else {
-            return false
-        }
+        return Date().timeIntervalSince1970 >= (timeOfLastSample + sampleInterval) ? true : false
     }
     
     func outputAccelerationData(acceleration: CMAcceleration) {
@@ -152,40 +144,11 @@ class LocationViewController: UIViewController, CLLocationManagerDelegate {
         rotationX.text = "\(rotation.x.format(f: format))"
         rotationY.text = "\(rotation.y.format(f: format))"
         rotationZ.text = "\(rotation.z.format(f: format))"
-
     }
 
 }
 
-extension UIColor {
-    public convenience init?(hexString: String) {
-        let r, g, b, a: CGFloat
-        
-        if hexString.hasPrefix("#") {
-            let start = hexString.index(hexString.startIndex, offsetBy: 1)
-            let hexColor = hexString.substring(from: start)
-            
-            if hexColor.characters.count == 8 {
-                let scanner = Scanner(string: hexColor)
-                var hexNumber: UInt64 = 0
-                
-                if scanner.scanHexInt64(&hexNumber) {
-                    r = CGFloat((hexNumber & 0xff000000) >> 24) / 255
-                    g = CGFloat((hexNumber & 0x00ff0000) >> 16) / 255
-                    b = CGFloat((hexNumber & 0x0000ff00) >> 8) / 255
-                    a = CGFloat(hexNumber & 0x000000ff) / 255
-                    
-                    self.init(red: r, green: g, blue: b, alpha: a)
-                    return
-                }
-            }
-        }
-        
-        return nil
-    }
-}
-
-
+// Double extension to support returning a double value as a formatted string with a limit on decimal precision
 extension Double {
     func format(f: String) -> String {
         return String(format: "%\(f)f", self)
