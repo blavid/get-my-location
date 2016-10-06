@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>wt_dc_send_interval_millis</key>
+	<string>3000</string>
+	<key>wt_dc_dcsid</key>
+	<string>dcsqm14ha10000s142fw1a8lw_6m3f</string>
+	<key>wt_dc_collection_url_base</key>
+	<string>http://scs.webtrends.com/v2/</string>
+	<key>wt_dc_report_location_enabled</key>
+	<string>true</string>
+</dict>
+</plist>
