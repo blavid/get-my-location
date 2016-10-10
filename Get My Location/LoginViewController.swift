@@ -23,6 +23,10 @@ class LoginViewController: UIViewController {
         goButton.layer.borderColor = buttonColor.cgColor
         goButton.layer.borderWidth = 2
         goButton.layer.cornerRadius = 5
+            // where are you?
+            let directory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).last
+            print("Documents Directory: \(directory)")
+
     }
 
     override func didReceiveMemoryWarning() {
