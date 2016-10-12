@@ -9,8 +9,12 @@
 	<key>wt_dc_report_location_enabled</key>
 	<string>true</string>
 	<key>wt_dc_collection_url_base</key>
-	<string>https://scs.webtrends.com/v2/</string>
+	<string>http://scs.webtrends.com/v2/</string>
 	<key>wt_dc_automatics_enabled</key>
 	<string>false</string>
+	<key>wt_dc_auto_send_threshold_percent</key>
+	<string>10</string>
+	<key>wt_dc_event_table_size_maximum</key>
+	<string>10</string>
 </dict>
 </plist>

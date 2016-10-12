@@ -97,7 +97,13 @@ class LocationViewController: UIViewController, CLLocationManagerDelegate {
             } else {
                 if (placemarks?.count)! > 0 {
                     let placemark = placemarks?.last
-                    self.addressLabel.text = "\(placemark!.subThoroughfare!) \(placemark!.thoroughfare!)\n\(placemark!.locality!), \(placemark!.administrativeArea!) \(placemark!.postalCode!) "
+                    if let addr1 = placemark?.subThoroughfare,
+                        let addr2 = placemark?.thoroughfare,
+                        let city = placemark?.locality,
+                        let state = placemark?.administrativeArea,
+                        let zip = placemark?.postalCode {
+                            self.addressLabel.text = "\(addr1) \(addr2)\n\(city), \(state) \(zip) "
+                    }
                 }
             }
         }
@@ -128,6 +134,16 @@ class LocationViewController: UIViewController, CLLocationManagerDelegate {
         
         let eventMeta = WTEventMeta(eventPath: "LocationDemo/newLocation", description: "A new location was triggered", type: "Location Change", customParams: customParams)
         WTDataCollector.shared().triggerEvent(forCustomEvent: eventMeta)
+        
+        // Indicate that event was sent by changing color of button
+        if startLocatingButton.layer.backgroundColor == UIColor.white.cgColor {
+            startLocatingButton.layer.backgroundColor = UIColor.black.cgColor
+            startLocatingButton.setTitleColor(UIColor.white, for: .normal)
+        } else {
+            startLocatingButton.layer.backgroundColor = UIColor.white.cgColor
+            startLocatingButton.setTitleColor(UIColor.black, for: .normal)
+        }
+        
     }
     
     func timeHasElapsed() -> Bool {
