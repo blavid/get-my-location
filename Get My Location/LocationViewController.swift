@@ -97,6 +97,20 @@ class LocationViewController: UIViewController, CLLocationManagerDelegate {
             } else {
                 if (placemarks?.count)! > 0 {
                     let placemark = placemarks?.last
+                    print(placemark?.name?.description ?? "No administrative area")
+                    print(placemark?.addressDictionary?.description ?? "No address dictionary")
+                    print(placemark?.isoCountryCode?.description ?? "No country code")
+                    print(placemark?.country?.description ?? "No country")
+                    print(placemark?.postalCode?.description ?? "No postal code")
+                    print(placemark?.administrativeArea?.description ?? "No administrative area")
+                    print(placemark?.subAdministrativeArea?.description ?? "No subadministrative area")
+                    print(placemark?.locality?.description ?? "No locality")
+                    print(placemark?.subLocality?.description ?? "No sublocality")
+                    print(placemark?.thoroughfare?.description ?? "No thoroughfare")
+                    print(placemark?.subThoroughfare?.description ?? "No subthoroughfare")
+                    print(placemark?.region?.description ?? "No region")
+                    print(placemark?.timeZone?.description ?? "No timezone")
+
                     if let addr1 = placemark?.subThoroughfare,
                         let addr2 = placemark?.thoroughfare,
                         let city = placemark?.locality,

@@ -36,6 +36,7 @@
 		7F5CA5C41DA46B5E002538C7 /* webtrends_logo_white.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = webtrends_logo_white.jpg; sourceTree = "<group>"; };
 		7F5CA5CE1DA46F9F002538C7 /* Location-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "Location-Bridging-Header.h"; path = "../Location-Bridging-Header.h"; sourceTree = "<group>"; };
 		7F5CA5CF1DA471C5002538C7 /* webtrends.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = webtrends.plist; sourceTree = "<group>"; };
+		7F659CFE1E395C370055C6C6 /* Get My Location.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Get My Location.entitlements"; sourceTree = "<group>"; };
 		7F80D48E1DA56C76008A4C2C /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		7F80D4901DA59E0F008A4C2C /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
 		7F80D4921DA6CDF8008A4C2C /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -78,6 +79,7 @@
 		7F5CA5AA1DA4501E002538C7 /* Get My Location */ = {
 			isa = PBXGroup;
 			children = (
+				7F659CFE1E395C370055C6C6 /* Get My Location.entitlements */,
 				7F5CA5CE1DA46F9F002538C7 /* Location-Bridging-Header.h */,
 				7F5CA5AB1DA4501E002538C7 /* AppDelegate.swift */,
 				7F5CA5AF1DA4501E002538C7 /* Main.storyboard */,
@@ -150,6 +152,11 @@
 						CreatedOnToolsVersion = 8.0;
 						DevelopmentTeam = 5K86DA88D2;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -368,9 +375,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-1";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_ENTITLEMENTS = "Get My Location/Get My Location.entitlements";
 				DEVELOPMENT_TEAM = 5K86DA88D2;
 				INFOPLIST_FILE = "Get My Location/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.webtrends.Get-My-Location";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -385,9 +393,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-1";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_ENTITLEMENTS = "Get My Location/Get My Location.entitlements";
 				DEVELOPMENT_TEAM = 5K86DA88D2;
 				INFOPLIST_FILE = "Get My Location/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.webtrends.Get-My-Location";
 				PRODUCT_NAME = "$(TARGET_NAME)";
